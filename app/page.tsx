@@ -19,66 +19,83 @@ const services = [
 
 const works = [
   {
-    client: "L사 연수원",
-    kind: "교육·코칭",
-    body: "그룹 구매 컨퍼런스 발표자의 AI Agent 제작물을 4회 코칭으로 고도화하고, 행사 당일 어려운 기술 질의에 대신 답변",
-    year: "2026",
-  },
-  {
-    client: "K재단",
-    kind: "교육·코칭",
-    body: "초·중등 정보교원 대상 AI교육 해커톤 온라인 멘토링 — 공공데이터 기반 학교 비교 서비스 팀의 기획·데이터 설계 자문",
-    year: "2026",
-  },
-  {
-    client: "T사",
-    kind: "AX 구축",
-    body: "10~20인 중소기업 납품용 Discord 멀티에이전트 업무 템플릿 개발 — 팀별 격리 워크스페이스, Claude·Codex BYO, 웹 파일함까지 v1 완성",
-    year: "2026",
-  },
-  {
-    client: "B사",
-    kind: "SaaS 개발",
-    body: "정책자금 컨설팅사 영업팀의 내부 보고서 생성기를 컨설턴트용 구독형 SaaS로 확장 — 공공데이터 API 연동 (진행 중)",
-    year: "2026",
-  },
-  {
     client: "S사",
     kind: "SaaS 개발",
-    body: "쿠팡 셀러 통합 관리 SaaS 리뉴얼 — 매출·정산 데이터를 단일 기준으로 계산하는 대시보드와 자동 수집 파이프라인 (진행 중)",
-    year: "2026",
+    body: "쿠팡 셀러 통합 관리 SaaS 리뉴얼 — 매출·정산 데이터를 단일 기준으로 계산하는 대시보드와 자동 수집 파이프라인",
+    period: "2026.09 – 진행 중",
   },
   {
     client: "G사",
     kind: "콘텐츠 자동화",
     body: "지점별 페르소나로 Claude가 Threads 게시물을 만들고 예약 발행까지 관리하는 마케팅 관리자 웹 (MVP)",
-    year: "2026",
+    period: "2026.09",
+  },
+  {
+    client: "L사 연수원",
+    kind: "교육·코칭",
+    body: "그룹 구매 컨퍼런스 발표자의 AI Agent 제작물을 4회 코칭으로 고도화하고, 행사 당일 어려운 기술 질의에 대신 답변",
+    period: "2026.08 – 09",
+  },
+  {
+    client: "K재단",
+    kind: "교육·코칭",
+    body: "초·중등 정보교원 대상 AI교육 해커톤 온라인 멘토링 — 공공데이터 기반 학교 비교 서비스 팀의 기획·데이터 설계 자문",
+    period: "2026.08",
+  },
+  {
+    client: "B사",
+    kind: "SaaS 개발",
+    body: "정책자금 컨설팅사 영업팀의 내부 보고서 생성기를 컨설턴트용 구독형 SaaS로 확장 — 공공데이터 API 연동",
+    period: "2026.08 – 진행 중",
+  },
+  {
+    client: "T사",
+    kind: "AX 구축",
+    body: "10~20인 중소기업 납품용 Discord 멀티에이전트 업무 템플릿 개발 — 팀별 격리 워크스페이스, Claude·Codex BYO, 웹 파일함까지 v1 완성",
+    period: "2026.06 – 진행 중",
   },
   {
     client: "M커뮤니티",
     kind: "AI 비서",
     body: "메신저로 말을 걸면 웹 검색·조회·반복 작업을 대신하는 격리형 AI 비서 봇 구축, 커뮤니티에서 실사용 중",
-    year: "2026",
+    period: "2026.04 – 05",
   },
 ];
 
 const products = [
   {
-    name: "전세가드",
-    tag: "jeonse-guard",
-    body: "주소 한 줄로 전세 계약 전 안전진단, 계약 후엔 보증금 워치독. 실거래가·건축물대장을 교차 조회해 근거와 함께 리포트합니다.",
-    stack: "Python · 공공데이터",
-    href: "https://github.com/pakko-lab/jeonse-guard",
+    name: "블로그 콘텐츠 어시스턴트",
+    period: "2026.09 –",
+    tag: "blog-assistant",
+    body: "상위 노출 문서를 실측해 목표치를 잡고, 경험 메모를 바탕으로 원고·이미지를 만들어 11개 항목으로 검수합니다. 발행은 사람이 합니다.",
+    stack: "Claude · Naver API",
   },
   {
     name: "디자인 하네스",
+    period: "2026.09",
     tag: "oss-design-harness",
     body: "기획 문서 한 장에서 인터뷰, HTML 초안, Figma 구현, 검증까지 명령 하나로 이어지는 오픈소스 디자인 하네스.",
     stack: "Claude Code · Figma",
     href: "https://github.com/Pakkoc/oss-design-harness",
   },
   {
+    name: "전세가드",
+    period: "2026.07 –",
+    tag: "jeonse-guard",
+    body: "주소 한 줄로 전세 계약 전 안전진단, 계약 후엔 보증금 워치독. 실거래가·건축물대장을 교차 조회해 근거와 함께 리포트합니다.",
+    stack: "Python · 공공데이터",
+    href: "https://github.com/pakko-lab/jeonse-guard",
+  },
+  {
+    name: "데이터 분석 에이전트 팀",
+    period: "2026.03 – 04",
+    tag: "da-agent-team",
+    body: "스키마 분석부터 전처리, EDA, 피처 엔지니어링, 모델링, 전략 수립까지 7개 에이전트가 교차 리뷰하며 분석하는 팀.",
+    stack: "Claude Code · Multi-agent",
+  },
+  {
     name: "주식 모니터링 대시보드",
+    period: "2026.03 – 04",
     tag: "stock-dashboard",
     body: "흩어진 시세·뉴스·공시를 위젯 대시보드 하나로. AI 에이전트가 급등 원인을 분석하고 신뢰도까지 표시합니다.",
     stack: "LangGraph · Socket.IO",
@@ -86,25 +103,15 @@ const products = [
   },
   {
     name: "코인 차익 모니터",
+    period: "2026.02 – 03",
     tag: "crypto-arb-monitor",
     body: "국내외 5개 거래소 BTC·ETH 시세를 실시간으로 비교해 김치 프리미엄과 스프레드를 계산하고 알림을 보냅니다.",
     stack: "FastAPI · WebSocket",
     href: "https://github.com/Pakkoc/crypto-arb-monitor",
   },
   {
-    name: "데이터 분석 에이전트 팀",
-    tag: "da-agent-team",
-    body: "스키마 분석부터 전처리, EDA, 피처 엔지니어링, 모델링, 전략 수립까지 7개 에이전트가 교차 리뷰하며 분석하는 팀.",
-    stack: "Claude Code · Multi-agent",
-  },
-  {
-    name: "블로그 콘텐츠 어시스턴트",
-    tag: "blog-assistant",
-    body: "상위 노출 문서를 실측해 목표치를 잡고, 경험 메모를 바탕으로 원고·이미지를 만들어 11개 항목으로 검수합니다. 발행은 사람이 합니다.",
-    stack: "Claude · Naver API",
-  },
-  {
     name: "배드민턴 샵 관리 앱",
+    period: "2026.02 – 03",
     tag: "badminton-app",
     body: "배드민턴 샵의 거트 작업 일정, 고객 등록, 매장 위치 공유를 한 곳에서 관리하는 모바일 앱.",
     stack: "Flutter",
@@ -112,6 +119,7 @@ const products = [
   },
   {
     name: "의류 프리사이즈 추천",
+    period: "2023.06",
     tag: "ml-project",
     body: "의류 실측 데이터로 프리사이즈를 분석하고 개인 체형에 맞는 사이즈를 추천하는 머신러닝 프로젝트.",
     stack: "Python · ML",
@@ -122,14 +130,17 @@ const products = [
 const activities = [
   {
     title: "마법사관학교 스터디 서버 운영",
-    body: "약 900명 규모 디스코드 공부 커뮤니티를 운영하며, 공부 시간·레벨·잔디 캘린더를 기록하는 학습 트래커 봇과 전용 앱을 직접 만들었습니다.",
+    period: "2025.06 – 현재",
+    body: "1,300명이 넘는 디스코드 공부 커뮤니티를 운영하며, 공부 시간·레벨·잔디 캘린더를 기록하는 학습 트래커 봇과 전용 앱을 직접 만들었습니다.",
   },
   {
     title: "UNDP Data Dive 해커톤",
+    period: "2025.07 – 08",
     body: "2025 UNDP 데이터 다이브 해커톤에서 그린워싱 탐지 ML 모델과 데이터 파이프라인(dlt·dbt)을 개발했습니다.",
   },
   {
     title: "RAG·오픈소스 스터디 운영",
+    period: "2025.12 – 2026.08",
     body: "『랭체인을 활용한 RAG 비법노트』 10주 실습 스터디와 pydantic-ai 오픈소스 스터디를 꾸려 운영했습니다.",
   },
 ];
@@ -213,7 +224,7 @@ export default function Home() {
             ["2", "기업·기관 코칭"],
             ["5", "AX·개발 협업"],
             ["8", "직접 만든 제품"],
-            ["900+", "운영 커뮤니티 인원"],
+            ["1,300+", "운영 커뮤니티 인원"],
           ].map(([n, label]) => (
             <div key={label} className="bg-paper px-6 py-5">
               <dt className="text-sm text-muted">{label}</dt>
@@ -249,7 +260,7 @@ export default function Home() {
                   </span>
                 </span>
                 <span className="leading-relaxed text-muted">{w.body}</span>
-                <span className="font-mono text-sm text-muted">{w.year}</span>
+                <span className="font-mono text-sm whitespace-nowrap text-muted">{w.period}</span>
               </li>
             ))}
           </ul>
@@ -268,7 +279,10 @@ export default function Home() {
                     {p.href && <span className="ml-1.5 text-muted transition group-hover:text-indigo">↗</span>}
                   </h2>
                   <p className="mt-3 text-[15px] leading-relaxed text-muted">{p.body}</p>
-                  <p className="mt-auto pt-4 font-mono text-xs text-muted/80">{p.stack}</p>
+                  <p className="mt-auto flex justify-between gap-3 pt-4 font-mono text-xs text-muted/80">
+                    <span>{p.stack}</span>
+                    <span className="whitespace-nowrap">{p.period}</span>
+                  </p>
                 </>
               );
               return p.href ? (
@@ -296,7 +310,8 @@ export default function Home() {
           <div className="grid gap-5 md:grid-cols-3">
             {activities.map((a) => (
               <article key={a.title} className="rounded-2xl border border-line bg-paper-2 p-7">
-                <h2 className="text-lg font-semibold">{a.title}</h2>
+                <p className="font-mono text-xs text-rust">{a.period}</p>
+                <h2 className="mt-2 text-lg font-semibold">{a.title}</h2>
                 <p className="mt-3 leading-relaxed text-muted">{a.body}</p>
               </article>
             ))}
