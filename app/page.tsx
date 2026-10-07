@@ -17,48 +17,65 @@ const services = [
   },
 ];
 
-const works = [
+const workGroups = [
   {
-    client: "S사",
-    kind: "SaaS 개발",
-    body: "쿠팡 셀러 통합 관리 SaaS 리뉴얼 — 매출·정산 데이터를 단일 기준으로 계산하는 대시보드와 자동 수집 파이프라인",
-    period: "2026.09 – 진행 중",
+    title: "교육·코칭",
+    items: [
+      {
+        client: "L사 연수원",
+        title: "그룹 구매 컨퍼런스 발표자 AI Agent 고도화 코칭",
+        detail: "4회 코칭 · 행사 당일 기술 질의 대응",
+        period: "2026.08 – 09",
+      },
+      {
+        client: "K재단",
+        title: "초·중등 정보교원 AI교육 해커톤 멘토링",
+        detail: "공공데이터 기반 학교 비교 서비스 팀 · 기획·데이터 설계 자문",
+        period: "2026.08",
+      },
+    ],
   },
   {
-    client: "G사",
-    kind: "콘텐츠 자동화",
-    body: "지점별 페르소나로 Claude가 Threads 게시물을 만들고 예약 발행까지 관리하는 마케팅 관리자 웹 (MVP)",
-    period: "2026.09",
-  },
-  {
-    client: "L사 연수원",
-    kind: "교육·코칭",
-    body: "그룹 구매 컨퍼런스 발표자의 AI Agent 제작물을 4회 코칭으로 고도화하고, 행사 당일 어려운 기술 질의에 대신 답변",
-    period: "2026.08 – 09",
-  },
-  {
-    client: "K재단",
-    kind: "교육·코칭",
-    body: "초·중등 정보교원 대상 AI교육 해커톤 온라인 멘토링 — 공공데이터 기반 학교 비교 서비스 팀의 기획·데이터 설계 자문",
-    period: "2026.08",
-  },
-  {
-    client: "B사",
-    kind: "SaaS 개발",
-    body: "정책자금 컨설팅사 영업팀의 내부 보고서 생성기를 컨설턴트용 구독형 SaaS로 확장 — 공공데이터 API 연동",
-    period: "2026.08 – 진행 중",
-  },
-  {
-    client: "T사",
-    kind: "AX 구축",
-    body: "10~20인 중소기업 납품용 Discord 멀티에이전트 업무 템플릿 개발 — 팀별 격리 워크스페이스, Claude·Codex BYO, 웹 파일함까지 v1 완성",
-    period: "2026.06 – 진행 중",
-  },
-  {
-    client: "M커뮤니티",
-    kind: "AI 비서",
-    body: "메신저로 말을 걸면 웹 검색·조회·반복 작업을 대신하는 격리형 AI 비서 봇 구축, 커뮤니티에서 실사용 중",
-    period: "2026.04 – 05",
+    title: "AX 구축·개발",
+    items: [
+      {
+        client: "T사",
+        kind: "AX 구축",
+        title: "중소기업 납품용 멀티에이전트 업무 템플릿 v1 완성",
+        detail: "Discord 기반 · 팀별 격리 워크스페이스 · Claude·Codex BYO · 웹 파일함",
+        period: "2026.06 – 09",
+      },
+      {
+        client: "G사",
+        kind: "콘텐츠 자동화",
+        title: "Claude 기반 Threads 콘텐츠 자동화 관리자 웹",
+        detail: "지점별 페르소나 게시물 생성 · 예약 발행 · MVP",
+        period: "2026.09",
+      },
+      {
+        client: "M커뮤니티",
+        kind: "AI 비서",
+        title: "메신저 기반 격리형 AI 비서 봇 구축",
+        detail: "웹 검색·조회·반복 작업 대행 · 커뮤니티 실사용",
+        period: "2026.04 – 05",
+      },
+      {
+        client: "S사",
+        kind: "SaaS 개발",
+        title: "쿠팡 셀러 통합 관리 SaaS 리뉴얼",
+        detail: "매출·정산 단일 기준 대시보드 · 자동 수집 파이프라인",
+        period: "2026.09 –",
+        ongoing: true,
+      },
+      {
+        client: "B사",
+        kind: "SaaS 개발",
+        title: "정책자금 컨설턴트용 구독형 SaaS",
+        detail: "영업팀 보고서 생성기 확장 · 공공데이터 API 연동",
+        period: "2026.08 –",
+        ongoing: true,
+      },
+    ],
   },
 ];
 
@@ -250,39 +267,59 @@ export default function Home() {
         {/* Works */}
         <section id="works" className="scroll-mt-20 border-t border-line py-20">
           <SectionLabel no="02">함께한 일</SectionLabel>
-          <ul className="divide-y divide-line border-y border-line">
-            {works.map((w) => (
-              <li key={w.client} className="grid gap-2 py-6 sm:grid-cols-[10rem_1fr_auto] sm:gap-8">
-                <span className="flex flex-col gap-1.5">
-                  <span className="font-semibold">{w.client}</span>
-                  <span className="w-fit rounded-full border border-line px-2.5 py-0.5 text-xs text-muted">
-                    {w.kind}
-                  </span>
-                </span>
-                <span className="leading-relaxed text-muted">{w.body}</span>
-                <span className="font-mono text-sm whitespace-nowrap text-muted">{w.period}</span>
-              </li>
+          <div className="space-y-12">
+            {workGroups.map((g) => (
+              <div key={g.title}>
+                <h3 className="mb-3 flex items-baseline gap-2 text-sm font-semibold">
+                  {g.title}
+                  <span className="font-mono text-xs font-normal text-muted">{g.items.length}</span>
+                </h3>
+                <ul className="divide-y divide-line border-y border-line">
+                  {g.items.map((w) => (
+                    <li key={w.client} className="grid gap-2 py-6 sm:grid-cols-[10rem_1fr_auto] sm:gap-8">
+                      <span className="flex flex-col gap-1.5">
+                        <span className="font-semibold">{w.client}</span>
+                        {"kind" in w && (
+                          <span className="w-fit rounded-full border border-line px-2.5 py-0.5 text-xs text-muted">
+                            {w.kind}
+                          </span>
+                        )}
+                      </span>
+                      <span className="flex flex-col gap-1">
+                        <span className="leading-relaxed">{w.title}</span>
+                        <span className="text-sm leading-relaxed text-muted">{w.detail}</span>
+                      </span>
+                      <span className="flex flex-col items-start gap-1.5 sm:items-end">
+                        <span className="font-mono text-sm whitespace-nowrap text-muted">{w.period}</span>
+                        {"ongoing" in w && w.ongoing && (
+                          <span className="rounded-full bg-indigo/10 px-2.5 py-0.5 text-xs text-indigo">진행 중</span>
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         </section>
 
         {/* Products */}
         <section id="products" className="scroll-mt-20 border-t border-line py-20">
           <SectionLabel no="03">직접 만든 것</SectionLabel>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 md:grid-cols-2">
             {products.map((p) => {
               const inner = (
                 <>
-                  <span className="font-mono text-xs text-indigo">{p.tag}</span>
+                  <span className="flex items-center justify-between gap-3 font-mono text-xs">
+                    <span className="text-indigo">{p.tag}</span>
+                    <span className="whitespace-nowrap text-muted">{p.period}</span>
+                  </span>
                   <h2 className="mt-3 text-xl font-semibold">
                     {p.name}
                     {p.href && <span className="ml-1.5 text-muted transition group-hover:text-indigo">↗</span>}
                   </h2>
-                  <p className="mt-3 text-[15px] leading-relaxed text-muted">{p.body}</p>
-                  <p className="mt-auto flex justify-between gap-3 pt-4 font-mono text-xs text-muted/80">
-                    <span>{p.stack}</span>
-                    <span className="whitespace-nowrap">{p.period}</span>
-                  </p>
+                  <p className="mt-3 leading-relaxed text-muted">{p.body}</p>
+                  <p className="mt-auto pt-4 font-mono text-xs text-muted/80">{p.stack}</p>
                 </>
               );
               return p.href ? (

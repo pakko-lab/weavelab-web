@@ -38,6 +38,15 @@ html {
   scroll-behavior: smooth;
 }
 
+p,
+li,
+h1,
+h2,
+h3,
+dd {
+  text-wrap: pretty;
+}
+
 body {
   background: var(--paper);
   color: var(--ink);
