@@ -95,6 +95,7 @@ export default function Home() {
             <li><a className="hover:text-ink" href="#services">서비스</a></li>
             <li><a className="hover:text-ink" href="#works">함께한 일</a></li>
             <li><a className="hover:text-ink" href="#products">만든 것</a></li>
+            <li><a className="hover:text-ink" href="#about">About</a></li>
             <li><a className="hover:text-ink" href="#contact">문의</a></li>
           </ul>
         </nav>
@@ -193,9 +194,43 @@ export default function Home() {
           </div>
         </section>
 
+        {/* About (English) */}
+        <section id="about" lang="en" className="scroll-mt-20 border-t border-line py-20">
+          <SectionLabel no="04">About WeaveLab</SectionLabel>
+          <div className="grid gap-10 md:grid-cols-[1.4fr_1fr]">
+            <div className="space-y-4 leading-relaxed text-muted">
+              <p className="text-lg text-ink">
+                WeaveLab is a small AI studio in South Korea that weaves AI agents into real work.
+              </p>
+              <p>
+                We coach enterprise teams on building their own AI agents, deploy Claude-powered
+                multi-agent workspaces that automate workflows for small and mid-sized companies,
+                and ship our own products such as a public-data lease-deposit safety checker for
+                tenants.
+              </p>
+            </div>
+            <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 self-start rounded-2xl border border-line p-6 text-sm">
+              <dt className="text-muted">Company</dt>
+              <dd>WeaveLab (위브랩)</dd>
+              <dt className="text-muted">Founder</dt>
+              <dd>Seongho Park</dd>
+              <dt className="text-muted">Founded</dt>
+              <dd>March 2026</dd>
+              <dt className="text-muted">Business Reg. No.</dt>
+              <dd className="font-mono">243-39-01339</dd>
+              <dt className="text-muted">Location</dt>
+              <dd>Hwaseong, Gyeonggi-do, South Korea</dd>
+              <dt className="text-muted">Contact</dt>
+              <dd className="break-all">
+                <a className="hover:text-indigo" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              </dd>
+            </dl>
+          </div>
+        </section>
+
         {/* Contact */}
         <section id="contact" className="scroll-mt-20 border-t border-line py-24 text-center">
-          <SectionLabel no="04" center>
+          <SectionLabel no="05" center>
             문의
           </SectionLabel>
           <h2 className="font-serif text-3xl leading-snug font-bold sm:text-4xl">
@@ -217,7 +252,9 @@ export default function Home() {
 
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-5xl flex-col gap-2 px-5 py-8 text-sm text-muted sm:flex-row sm:justify-between sm:px-8">
-          <span>위브랩(WeaveLab) · 대표 박성호</span>
+          <span>
+            위브랩(WeaveLab) · 대표 박성호 · 사업자등록번호 243-39-01339 · 경기도 화성시
+          </span>
           <span>© 2026 WeaveLab</span>
         </div>
       </footer>
