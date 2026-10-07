@@ -20,22 +20,44 @@ const services = [
 const works = [
   {
     client: "L사 연수원",
-    body: "그룹 구매 컨퍼런스 발표자의 AI Agent 제작물 고도화 코칭, 행사 당일 기술 질의 대응",
+    kind: "교육·코칭",
+    body: "그룹 구매 컨퍼런스 발표자의 AI Agent 제작물을 4회 코칭으로 고도화하고, 행사 당일 어려운 기술 질의에 대신 답변",
     year: "2026",
   },
   {
     client: "K재단",
-    body: "초·중등 교원 AI교육 해커톤 온라인 멘토링",
+    kind: "교육·코칭",
+    body: "초·중등 정보교원 대상 AI교육 해커톤 온라인 멘토링 — 공공데이터 기반 학교 비교 서비스 팀의 기획·데이터 설계 자문",
     year: "2026",
   },
   {
     client: "T사",
-    body: "중소기업 AX 납품용 멀티에이전트 템플릿 공동 개발",
+    kind: "AX 구축",
+    body: "10~20인 중소기업 납품용 Discord 멀티에이전트 업무 템플릿 개발 — 팀별 격리 워크스페이스, Claude·Codex BYO, 웹 파일함까지 v1 완성",
+    year: "2026",
+  },
+  {
+    client: "B사",
+    kind: "SaaS 개발",
+    body: "정책자금 컨설팅사 영업팀의 내부 보고서 생성기를 컨설턴트용 구독형 SaaS로 확장 — 공공데이터 API 연동 (진행 중)",
+    year: "2026",
+  },
+  {
+    client: "S사",
+    kind: "SaaS 개발",
+    body: "쿠팡 셀러 통합 관리 SaaS 리뉴얼 — 매출·정산 데이터를 단일 기준으로 계산하는 대시보드와 자동 수집 파이프라인 (진행 중)",
     year: "2026",
   },
   {
     client: "G사",
-    body: "정책자금 컨설턴트용 구독형 SaaS 기획·개발 협업",
+    kind: "콘텐츠 자동화",
+    body: "지점별 페르소나로 Claude가 Threads 게시물을 만들고 예약 발행까지 관리하는 마케팅 관리자 웹 (MVP)",
+    year: "2026",
+  },
+  {
+    client: "M커뮤니티",
+    kind: "AI 비서",
+    body: "메신저로 말을 걸면 웹 검색·조회·반복 작업을 대신하는 격리형 AI 비서 봇 구축, 커뮤니티에서 실사용 중",
     year: "2026",
   },
 ];
@@ -44,19 +66,71 @@ const products = [
   {
     name: "전세가드",
     tag: "jeonse-guard",
-    body: "전세 계약 전 안전진단과 계약 후 보증금 감시. 공공데이터를 교차 분석하는 AI입니다.",
+    body: "주소 한 줄로 전세 계약 전 안전진단, 계약 후엔 보증금 워치독. 실거래가·건축물대장을 교차 조회해 근거와 함께 리포트합니다.",
+    stack: "Python · 공공데이터",
     href: "https://github.com/pakko-lab/jeonse-guard",
   },
   {
     name: "디자인 하네스",
     tag: "oss-design-harness",
-    body: "기획 문서 한 장에서 인터뷰, HTML 초안, Figma 구현, 검증까지 명령 하나로 이어지는 오픈소스입니다.",
+    body: "기획 문서 한 장에서 인터뷰, HTML 초안, Figma 구현, 검증까지 명령 하나로 이어지는 오픈소스 디자인 하네스.",
+    stack: "Claude Code · Figma",
     href: "https://github.com/Pakkoc/oss-design-harness",
   },
   {
-    name: "스터디 커뮤니티",
-    tag: "community",
-    body: "약 900명 규모의 디스코드 스터디 서버를 운영하며, 공부 시간을 기록하는 트래킹 봇을 직접 만들었습니다.",
+    name: "주식 모니터링 대시보드",
+    tag: "stock-dashboard",
+    body: "흩어진 시세·뉴스·공시를 위젯 대시보드 하나로. AI 에이전트가 급등 원인을 분석하고 신뢰도까지 표시합니다.",
+    stack: "LangGraph · Socket.IO",
+    href: "https://github.com/Pakkoc/stock-monitoring-dashboard",
+  },
+  {
+    name: "코인 차익 모니터",
+    tag: "crypto-arb-monitor",
+    body: "국내외 5개 거래소 BTC·ETH 시세를 실시간으로 비교해 김치 프리미엄과 스프레드를 계산하고 알림을 보냅니다.",
+    stack: "FastAPI · WebSocket",
+    href: "https://github.com/Pakkoc/crypto-arb-monitor",
+  },
+  {
+    name: "데이터 분석 에이전트 팀",
+    tag: "da-agent-team",
+    body: "스키마 분석부터 전처리, EDA, 피처 엔지니어링, 모델링, 전략 수립까지 7개 에이전트가 교차 리뷰하며 분석하는 팀.",
+    stack: "Claude Code · Multi-agent",
+  },
+  {
+    name: "블로그 콘텐츠 어시스턴트",
+    tag: "blog-assistant",
+    body: "상위 노출 문서를 실측해 목표치를 잡고, 경험 메모를 바탕으로 원고·이미지를 만들어 11개 항목으로 검수합니다. 발행은 사람이 합니다.",
+    stack: "Claude · Naver API",
+  },
+  {
+    name: "배드민턴 샵 관리 앱",
+    tag: "badminton-app",
+    body: "배드민턴 샵의 거트 작업 일정, 고객 등록, 매장 위치 공유를 한 곳에서 관리하는 모바일 앱.",
+    stack: "Flutter",
+    href: "https://github.com/Pakkoc/badminton_app",
+  },
+  {
+    name: "의류 프리사이즈 추천",
+    tag: "ml-project",
+    body: "의류 실측 데이터로 프리사이즈를 분석하고 개인 체형에 맞는 사이즈를 추천하는 머신러닝 프로젝트.",
+    stack: "Python · ML",
+    href: "https://github.com/Pakkoc/ML_project",
+  },
+];
+
+const activities = [
+  {
+    title: "마법사관학교 스터디 서버 운영",
+    body: "약 900명 규모 디스코드 공부 커뮤니티를 운영하며, 공부 시간·레벨·잔디 캘린더를 기록하는 학습 트래커 봇과 전용 앱을 직접 만들었습니다.",
+  },
+  {
+    title: "UNDP Data Dive 해커톤",
+    body: "2025 UNDP 데이터 다이브 해커톤에서 그린워싱 탐지 ML 모델과 데이터 파이프라인(dlt·dbt)을 개발했습니다.",
+  },
+  {
+    title: "RAG·오픈소스 스터디 운영",
+    body: "『랭체인을 활용한 RAG 비법노트』 10주 실습 스터디와 pydantic-ai 오픈소스 스터디를 꾸려 운영했습니다.",
   },
 ];
 
@@ -95,6 +169,7 @@ export default function Home() {
             <li><a className="hover:text-ink" href="#services">서비스</a></li>
             <li><a className="hover:text-ink" href="#works">함께한 일</a></li>
             <li><a className="hover:text-ink" href="#products">만든 것</a></li>
+            <li><a className="hover:text-ink" href="#activities">활동</a></li>
             <li><a className="hover:text-ink" href="#about">About</a></li>
             <li><a className="hover:text-ink" href="#contact">문의</a></li>
           </ul>
@@ -132,6 +207,21 @@ export default function Home() {
           <Weave className="mx-auto w-full max-w-[300px] md:max-w-none" />
         </section>
 
+        {/* Stats */}
+        <dl className="mb-4 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
+          {[
+            ["2", "기업·기관 코칭"],
+            ["5", "AX·개발 협업"],
+            ["8", "직접 만든 제품"],
+            ["900+", "운영 커뮤니티 인원"],
+          ].map(([n, label]) => (
+            <div key={label} className="bg-paper px-6 py-5">
+              <dt className="text-sm text-muted">{label}</dt>
+              <dd className="mt-1 font-serif text-3xl font-bold">{n}</dd>
+            </div>
+          ))}
+        </dl>
+
         {/* Services */}
         <section id="services" className="scroll-mt-20 border-t border-line py-20">
           <SectionLabel no="01">무엇을 하나요</SectionLabel>
@@ -152,7 +242,12 @@ export default function Home() {
           <ul className="divide-y divide-line border-y border-line">
             {works.map((w) => (
               <li key={w.client} className="grid gap-2 py-6 sm:grid-cols-[10rem_1fr_auto] sm:gap-8">
-                <span className="font-semibold">{w.client}</span>
+                <span className="flex flex-col gap-1.5">
+                  <span className="font-semibold">{w.client}</span>
+                  <span className="w-fit rounded-full border border-line px-2.5 py-0.5 text-xs text-muted">
+                    {w.kind}
+                  </span>
+                </span>
                 <span className="leading-relaxed text-muted">{w.body}</span>
                 <span className="font-mono text-sm text-muted">{w.year}</span>
               </li>
@@ -163,7 +258,7 @@ export default function Home() {
         {/* Products */}
         <section id="products" className="scroll-mt-20 border-t border-line py-20">
           <SectionLabel no="03">직접 만든 것</SectionLabel>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((p) => {
               const inner = (
                 <>
@@ -172,7 +267,8 @@ export default function Home() {
                     {p.name}
                     {p.href && <span className="ml-1.5 text-muted transition group-hover:text-indigo">↗</span>}
                   </h2>
-                  <p className="mt-3 leading-relaxed text-muted">{p.body}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted">{p.body}</p>
+                  <p className="mt-auto pt-4 font-mono text-xs text-muted/80">{p.stack}</p>
                 </>
               );
               return p.href ? (
@@ -181,12 +277,12 @@ export default function Home() {
                   href={p.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group rounded-2xl border border-line p-7 transition hover:border-indigo"
+                  className="group flex flex-col rounded-2xl border border-line p-6 transition hover:border-indigo"
                 >
                   {inner}
                 </a>
               ) : (
-                <article key={p.name} className="rounded-2xl border border-line p-7">
+                <article key={p.name} className="flex flex-col rounded-2xl border border-line p-6">
                   {inner}
                 </article>
               );
@@ -194,9 +290,22 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Activities */}
+        <section id="activities" className="scroll-mt-20 border-t border-line py-20">
+          <SectionLabel no="04">커뮤니티·활동</SectionLabel>
+          <div className="grid gap-5 md:grid-cols-3">
+            {activities.map((a) => (
+              <article key={a.title} className="rounded-2xl border border-line bg-paper-2 p-7">
+                <h2 className="text-lg font-semibold">{a.title}</h2>
+                <p className="mt-3 leading-relaxed text-muted">{a.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         {/* About (English) */}
         <section id="about" lang="en" className="scroll-mt-20 border-t border-line py-20">
-          <SectionLabel no="04">About WeaveLab</SectionLabel>
+          <SectionLabel no="05">About WeaveLab</SectionLabel>
           <div className="grid gap-10 md:grid-cols-[1.4fr_1fr]">
             <div className="space-y-4 leading-relaxed text-muted">
               <p className="text-lg text-ink">
@@ -241,7 +350,7 @@ export default function Home() {
 
         {/* Contact */}
         <section id="contact" className="scroll-mt-20 border-t border-line py-24 text-center">
-          <SectionLabel no="05" center>
+          <SectionLabel no="06" center>
             문의
           </SectionLabel>
           <h2 className="font-serif text-3xl leading-snug font-bold sm:text-4xl">
