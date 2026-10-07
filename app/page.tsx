@@ -220,6 +220,17 @@ export default function Home() {
               <dd className="font-mono">243-39-01339</dd>
               <dt className="text-muted">Location</dt>
               <dd>Hwaseong, Gyeonggi-do, South Korea</dd>
+              <dt className="text-muted">LinkedIn</dt>
+              <dd>
+                <a
+                  className="hover:text-indigo"
+                  href="https://www.linkedin.com/in/seongho-park-7889972ba"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Seongho Park ↗
+                </a>
+              </dd>
               <dt className="text-muted">Contact</dt>
               <dd className="break-all">
                 <a className="hover:text-indigo" href={`mailto:${EMAIL}`}>{EMAIL}</a>

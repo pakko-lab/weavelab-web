@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     siteName: "WeaveLab",
     locale: "ko_KR",
     type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "WeaveLab — Weave AI into work" }],
   },
 };
 
