@@ -391,6 +391,15 @@ export default function Home() {
                 >
                   Seongho Park ↗
                 </a>
+                <span className="text-muted"> · </span>
+                <a
+                  className="hover:text-indigo"
+                  href="https://www.linkedin.com/company/weavelab-kr"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  WeaveLab ↗
+                </a>
               </dd>
               <dt className="text-muted">Contact</dt>
               <dd className="break-all">
