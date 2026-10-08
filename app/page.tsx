@@ -369,12 +369,15 @@ export default function Home() {
                 and ship our own products such as a public-data lease-deposit safety checker for
                 tenants.
               </p>
+              <p>
+                Founded in March 2026 by Seongho Park, formerly a data analyst and AI engineer.
+              </p>
             </div>
             <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 self-start rounded-2xl border border-line p-6 text-sm">
               <dt className="text-muted">Company</dt>
               <dd>WeaveLab (위브랩)</dd>
               <dt className="text-muted">Founder</dt>
-              <dd>Seongho Park</dd>
+              <dd>Seongho Park — ex-Data Analyst, AI Engineer</dd>
               <dt className="text-muted">Founded</dt>
               <dd>March 2026</dd>
               <dt className="text-muted">Business Reg. No.</dt>
