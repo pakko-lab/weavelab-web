@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/serif-font.mjs",
+    "font:serif": "node scripts/serif-font.mjs --generate",
     "start": "next start",
     "lint": "eslint"
   },

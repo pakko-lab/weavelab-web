@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Noto_Serif_KR } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const notoSerifKR = Noto_Serif_KR({
+// font-serif 에 쓰인 글자만 담은 서브셋 — 글자를 바꾸면 npm run font:serif (scripts/serif-font.mjs)
+const notoSerifKR = localFont({
+  src: "./fonts/noto-serif-kr-700.woff2",
+  weight: "700",
   variable: "--font-noto-serif-kr",
-  weight: ["600", "700"],
-  preload: false,
 });
 
 const title = "위브랩 WeaveLab — AI를 일에 엮습니다";
@@ -16,6 +17,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://weavelab.co.kr"),
   title,
   description,
+  alternates: { canonical: "/" },
+  verification: { other: { "naver-site-verification": "090f150ff4d36771c8be6b2c04dfd0bddbdb6ef1" } },
   openGraph: {
     title,
     description,
@@ -31,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko" className={`${notoSerifKR.variable} antialiased`}>
       <head>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"

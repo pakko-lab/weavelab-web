@@ -1,6 +1,46 @@
 import { Weave } from "./weave";
 
 const EMAIL = "carteblanche@weavelab.co.kr";
+const SITE = "https://weavelab.co.kr";
+
+// 검색엔진용 회사·사이트 정보 (schema.org JSON-LD)
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE}/#organization`,
+      name: "WeaveLab",
+      alternateName: "위브랩",
+      url: SITE,
+      logo: `${SITE}/logo.png`,
+      email: EMAIL,
+      foundingDate: "2026-03",
+      founder: {
+        "@type": "Person",
+        name: "박성호",
+        alternateName: "Seongho Park",
+        sameAs: "https://www.linkedin.com/in/seongho-park-7889972ba",
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "화성시",
+        addressRegion: "경기도",
+        addressCountry: "KR",
+      },
+      sameAs: ["https://www.linkedin.com/company/weavelab-kr"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE}/#website`,
+      name: "WeaveLab",
+      alternateName: "위브랩",
+      url: SITE,
+      inLanguage: "ko-KR",
+      publisher: { "@id": `${SITE}/#organization` },
+    },
+  ],
+};
 
 const services = [
   {
@@ -172,19 +212,23 @@ function SectionLabel({
   children: React.ReactNode;
 }) {
   return (
-    <p
+    <h2
       className={`mb-8 flex items-center gap-3 text-sm font-medium tracking-wide text-muted ${center ? "justify-center" : ""}`}
     >
       <span className="font-mono text-rust">{no}</span>
       <span className="h-px w-8 bg-line" />
       {children}
-    </p>
+    </h2>
   );
 }
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <header className="sticky top-0 z-10 border-b border-line/70 bg-paper/85 backdrop-blur">
         <nav className="mx-auto flex max-w-5xl items-center justify-between px-5 py-4 sm:px-8">
           <a href="#" className="flex items-center gap-2.5 font-semibold">
@@ -257,7 +301,7 @@ export default function Home() {
             {services.map((s, i) => (
               <article key={s.title} className="rounded-2xl border border-line bg-paper-2 p-7">
                 <span className="font-mono text-sm text-rust">0{i + 1}</span>
-                <h2 className="mt-4 text-xl font-semibold">{s.title}</h2>
+                <h3 className="mt-4 text-xl font-semibold">{s.title}</h3>
                 <p className="mt-3 leading-relaxed text-muted">{s.body}</p>
               </article>
             ))}
@@ -314,10 +358,10 @@ export default function Home() {
                     <span className="text-indigo">{p.tag}</span>
                     <span className="whitespace-nowrap text-muted">{p.period}</span>
                   </span>
-                  <h2 className="mt-3 text-xl font-semibold">
+                  <h3 className="mt-3 text-xl font-semibold">
                     {p.name}
                     {p.href && <span className="ml-1.5 text-muted transition group-hover:text-indigo">↗</span>}
-                  </h2>
+                  </h3>
                   <p className="mt-3 leading-relaxed text-muted">{p.body}</p>
                   <p className="mt-auto pt-4 font-mono text-xs text-muted/80">{p.stack}</p>
                 </>
@@ -348,7 +392,7 @@ export default function Home() {
             {activities.map((a) => (
               <article key={a.title} className="rounded-2xl border border-line bg-paper-2 p-7">
                 <p className="font-mono text-xs text-rust">{a.period}</p>
-                <h2 className="mt-2 text-lg font-semibold">{a.title}</h2>
+                <h3 className="mt-2 text-lg font-semibold">{a.title}</h3>
                 <p className="mt-3 leading-relaxed text-muted">{a.body}</p>
               </article>
             ))}
@@ -417,11 +461,11 @@ export default function Home() {
           <SectionLabel no="06" center>
             문의
           </SectionLabel>
-          <h2 className="font-serif text-3xl leading-snug font-bold sm:text-4xl">
+          <h3 className="font-serif text-3xl leading-snug font-bold sm:text-4xl">
             백지수표를 주셔도,
             <br />
             바가지는 없습니다.
-          </h2>
+          </h3>
           <p className="mx-auto mt-6 max-w-md leading-relaxed text-muted">
             무엇을 엮어야 할지 모르겠다면, 그것부터 같이 정리해 드립니다.
           </p>
